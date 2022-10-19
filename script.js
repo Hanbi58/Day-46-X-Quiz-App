@@ -79,13 +79,15 @@ function updateQuiz(i) {
 
   const submitAnswerBtn = document.getElementById("submitAnswer");
   submitAnswerBtn.addEventListener("click", () => {
-    if (
-      document.querySelector('input[name="answer"]:checked') &&
-      document.querySelector('input[name="answer"]:checked').value === qus[i][5]
-    ) {
-      correct++;
+    if (document.querySelector('input[name="answer"]:checked')) {
+      if (
+        document.querySelector('input[name="answer"]:checked').value ===
+        qus[i][5]
+      ) {
+        correct++;
+      }
+      pointer++;
+      updateQuiz(pointer);
     }
-    pointer++;
-    updateQuiz(pointer);
   });
 }
